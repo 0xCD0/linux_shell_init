@@ -63,10 +63,21 @@ then
     echo "[Desktop Entry]\r\nExec=/home/$USERNAME/.config/autostart/input.sh\r\nIcon=\r\nName=input.sh\r\nPath=\r\nTerminal=False\r\nType=Application\r\n" > ~/.config/autostart/input.sh.desktop
 
     chmod +x ~/.config/autostart/input.sh
-    chmod +x ~/.config/autostart/input.sh.desktop
+    chmod +x ~/.config/autostart/input.sh.desktop    
 
     echo ================== Remove Konsole ==================
     yes | sudo pacman -Rs konsole
+    
+    
+    # echo =============== Plasma + i3 Set =====================
+    # yes | sudo pacman -Syu i3-gaps feh picom
+    # systemctl --user mask plasma-kwin_x11.service
+    # echo "[Install]\r\nWantedBy=plasma-workspace.target\r\n\r\n[Unit]\r\nDescription=Plasma Custom Window Manager\r\nBefore=plasma-workspace.target\r\n\r\n[Service]\r\nExecStart=/usr/bin/i3\r\nSlice=session.slice\r\nRestart=on-failure\r\n" > ~/.config/systemd/user/plasma-i3.service
+    # systemctl --user daemon-reload
+    # systemctl --user enable plasma-i3.service
+    # mkdir -p ~/.config/i3/
+    # echo "# for KDE integration\r\nfor_window [window_role="pop-up"] floating enable\r\nfor_window [window_role="task_dialog"] floating enable\r\n\r\nfor_window [class="yakuake"] floating enable\r\nfor_window [class="systemsettings"] floating enable\r\nfor_window [class="plasmashell"] floating enable\r\nfor_window [class="Plasma"] floating enable; border none\r\nfor_window [title="plasma-desktop"] floating enable; border none\r\nfor_window [class="krunner"] floating enable; border none\r\nfor_window [class="Kmix"] floating enable; border none\r\nfor_window [class="Klipper"] floating enable; border none\r\nfor_window [class="Plasmoidviewer"] floating enable; border none\r\nfor_window [class="plasmashell" window_type="notification"] border none; move postiion 1450px 20px\r\nno_focus [class="plasmashell" window_type="notification"]\r\nfor_window [title="Desktop — Plasma"] kill; floating enable; border none\r\nfor_window [title="Save File — KDialog"] floating disable\r\nfor_window [class="kinfocenter"] floating enable\r\nfor_window [instance="_scratchpad"] floating enable\r\nfor_window [window_type="menu"] floating enable\r\nfor_window [window_type="dialog"] floating enable\r\nfor_window [window_role="Preferences"] floating enable\r\nfor_window [window_role="About"] floating enable\r\nfor_window [window_role="bubble"] floating enable" >> ~/.config/i3/config
+    
 fi
 
 # if EndeavourOS
