@@ -21,16 +21,19 @@ echo Install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 echo Change zsh Theme
-sed -i '0,/robbyrussell/s//fox/' .zshrc
+sed -i '0,/robbyrussell/s//fox/' ~/.zshrc
 
 echo Add plugins to zshrc
-sed -i '0,/plugins=(git)/s//plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' .zshrc
+sed -i '0,/plugins=(git)/s//plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 
 echo Show neofetch when tty start
 echo neofetch >> ~/.zshrc
 
 echo Apply zshrc
 source ~/.zshrc
+
+echo Set default zsh 
+chsh -s /usr/bin/zsh
 
 echo Install Terminator
 yes | sudo pacman -Syu terminator
@@ -54,6 +57,7 @@ yes | yay -Syu google-chrome
 if [ $DESKTOP_SESSION = "plasma" ]
 then
     echo Restore plasma settings
+    cd linux_shell_init
     chmod +x transfuse.sh
     transfuse.sh -r 0xcd
 
