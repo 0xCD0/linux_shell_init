@@ -29,9 +29,6 @@ sed -i '0,/plugins=(git)/s//plugins=(git zsh-autosuggestions zsh-syntax-highligh
 echo Show neofetch when tty start
 echo neofetch >> ~/.zshrc
 
-echo Set default zsh 
-chsh -s /usr/bin/zsh
-
 echo Install Terminator
 yes | sudo pacman -Syu terminator
 
@@ -76,3 +73,6 @@ then
     nvidia-inst --legacyrepo
     nvidia-inst --series 470
 fi
+
+echo Set default zsh 
+chsh -s /usr/bin/zsh
