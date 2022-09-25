@@ -72,5 +72,6 @@ fi
 if hostnamectl | grep -q EndeavourOS
 then
     echo Install Nvidia driver install
+    nvidia-inst --legacyrepo
     nvidia-inst --series 470
 fi
