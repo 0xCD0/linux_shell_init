@@ -14,11 +14,17 @@ yes | sudo pacman -Syu zsh
 echo Install OhMyZsh
 yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-echo Change zsh Theme
-awk -F '\t' -v OFS='\t' '{sub("robbyrussell", "fox", $1); print;}' ~/.zshrc > ~/temp
+echo Install zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-rm -rf ~/.zshrc
-mv ~/temp ~/.zshrc
+echo Install zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+echo Change zsh Theme
+sed -i '0,/robbyrussell/s//fox/' .zshrc
+
+echo Add plugins to zshrc
+sed -i '0,/plugins=(git)/s//plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' .zshrc
 
 echo Show neofetch when tty start
 echo neofetch >> ~/.zshrc
