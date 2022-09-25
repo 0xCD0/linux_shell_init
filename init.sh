@@ -58,6 +58,7 @@ then
     
 
     echo ================== Move ibus input method to autostart ==================
+    mkdir -p ~/.config/autostart/
     echo "export GTK_IM_MODULE=ibus\r\nexport QT_IM_MODULE=ibus\r\nexport XMODIFIERS=@im=ibus\r\nibus-daemon -drx" > ~/.config/autostart/input.sh
     echo "[Desktop Entry]\r\nExec=/home/$USERNAME/.config/autostart/input.sh\r\nIcon=\r\nName=input.sh\r\nPath=\r\nTerminal=False\r\nType=Application\r\n" > ~/.config/autostart/input.sh.desktop
 
