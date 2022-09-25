@@ -29,9 +29,6 @@ sed -i '0,/plugins=(git)/s//plugins=(git zsh-autosuggestions zsh-syntax-highligh
 echo Show neofetch when tty start
 echo neofetch >> ~/.zshrc
 
-echo Apply zshrc
-source ~/.zshrc
-
 echo Set default zsh 
 chsh -s /usr/bin/zsh
 
