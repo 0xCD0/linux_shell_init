@@ -54,10 +54,9 @@ yes | yay -Syu google-chrome
 if [ $DESKTOP_SESSION = "plasma" ]
 then
     echo Restore plasma settings
-    cd linux_shell_init
     mv 0xcd_transfusion_20220925_1237.tar.gz zeroxcd_transfusion_20220925_1237.tar.gz
     chmod +x transfuse.sh
-    transfuse.sh -r zeroxcd
+    echo 1 | transfuse.sh -r zeroxcd
 
     echo Move ibus input method to autostart
     echo "export GTK_IM_MODULE=ibus\r\nexport QT_IM_MODULE=ibus\r\nexport XMODIFIERS=@im=ibus\r\nibus-daemon -drx" > ~/.config/autostart/input.sh
