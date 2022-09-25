@@ -58,6 +58,7 @@ if [ $DESKTOP_SESSION = "plasma" ]
 then
     echo Restore plasma settings
     cd linux_shell_init
+    mv 0xcd_transfusion_20220925_1237.tar.gz zeroxcd_transfusion_20220925_1237.tar.gz
     chmod +x transfuse.sh
     transfuse.sh -r zeroxcd
 
