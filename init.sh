@@ -53,7 +53,9 @@ then
     echo ================== Restore plasma settings ==================
     mv 0xcd_transfusion_20220925_1237.tar.gz zeroxcd_transfusion_20220925_1237.tar.gz
     chmod +x transfuse.sh
+    cp vaporwave.jpg ~/Pictures
     echo 1 | transfuse.sh -r zeroxcd
+    
 
     echo ================== Move ibus input method to autostart ==================
     echo "export GTK_IM_MODULE=ibus\r\nexport QT_IM_MODULE=ibus\r\nexport XMODIFIERS=@im=ibus\r\nibus-daemon -drx" > ~/.config/autostart/input.sh
