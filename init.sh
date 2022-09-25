@@ -33,7 +33,7 @@ echo Apply zshrc
 source ~/.zshrc
 
 echo Install Terminator
-yes | sudo pa cman -Syu terminator
+yes | sudo pacman -Syu terminator
 
 echo Install VSCode
 yes | yay -Syu visual-studio-code-bin
@@ -58,8 +58,11 @@ then
     transfuse.sh -r 0xcd
 
     echo Move ibus input method to autostart
-    chmod +x input.sh
-    cp input.sh /home/sixtyfourbitm/.config/autostart
+    echo "export GTK_IM_MODULE=ibus\r\nexport QT_IM_MODULE=ibus\r\nexport XMODIFIERS=@im=ibus\r\nibus-daemon -drx" > ~/.config/autostart/input.sh
+    echo "[Desktop Entry]\r\nExec=/home/$USERNAME/.config/autostart/input.sh\r\nIcon=\r\nName=input.sh\r\nPath=\r\nTerminal=False\r\nType=Application\r\n" > ~/.config/autostart/input.sh.desktop
+
+    chmod +x ~/.config/autostart/input.sh
+    chmod +x ~/.config/autostart/input.sh.desktop
 
     echo Remove Konsole
     yes | sudo pacman -Rs konsole
