@@ -26,8 +26,8 @@ sed -i '0,/robbyrussell/s//fox/' ~/.zshrc
 echo ================== Add plugins to zshrc ==================
 sed -i '0,/plugins=(git)/s//plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 
-echo ================== Show neofetch when tty start ==================
-echo neofetch >> ~/.zshrc
+# echo ================== Show neofetch when tty start ==================
+# echo neofetch >> ~/.zshrc
 
 echo ================== Install Terminator ==================
 yes | sudo pacman -Syu terminator
@@ -49,14 +49,7 @@ yes | yay -Syu google-chrome
 
 # if Plasma
 if [ $DESKTOP_SESSION = "plasma" ]
-then
-    echo ================== Restore plasma settings ==================
-    mv 0xcd_transfusion_20220925_1237.tar.gz zeroxcd_transfusion_20220925_1237.tar.gz
-    chmod +x transfuse.sh
-    cp vaporwave.jpg ~/Pictures
-    echo 1 | transfuse.sh -r zeroxcd
-    
-
+then 
     echo ================== Move ibus input method to autostart ==================
     mkdir -p ~/.config/autostart/
     echo "export GTK_IM_MODULE=ibus\r\nexport QT_IM_MODULE=ibus\r\nexport XMODIFIERS=@im=ibus\r\nibus-daemon -drx" > ~/.config/autostart/input.sh
@@ -67,17 +60,6 @@ then
 
     echo ================== Remove Konsole ==================
     yes | sudo pacman -Rs konsole
-    
-    
-    # echo =============== Plasma + i3 Set =====================
-    # yes | sudo pacman -Syu i3-gaps feh picom
-    # systemctl --user mask plasma-kwin_x11.service
-    # echo "[Install]\r\nWantedBy=plasma-workspace.target\r\n\r\n[Unit]\r\nDescription=Plasma Custom Window Manager\r\nBefore=plasma-workspace.target\r\n\r\n[Service]\r\nExecStart=/usr/bin/i3\r\nSlice=session.slice\r\nRestart=on-failure\r\n" > ~/.config/systemd/user/plasma-i3.service
-    # systemctl --user daemon-reload
-    # systemctl --user enable plasma-i3.service
-    # mkdir -p ~/.config/i3/
-    # echo "# for KDE integration\r\nfor_window [window_role="pop-up"] floating enable\r\nfor_window [window_role="task_dialog"] floating enable\r\n\r\nfor_window [class="yakuake"] floating enable\r\nfor_window [class="systemsettings"] floating enable\r\nfor_window [class="plasmashell"] floating enable\r\nfor_window [class="Plasma"] floating enable; border none\r\nfor_window [title="plasma-desktop"] floating enable; border none\r\nfor_window [class="krunner"] floating enable; border none\r\nfor_window [class="Kmix"] floating enable; border none\r\nfor_window [class="Klipper"] floating enable; border none\r\nfor_window [class="Plasmoidviewer"] floating enable; border none\r\nfor_window [class="plasmashell" window_type="notification"] border none; move postiion 1450px 20px\r\nno_focus [class="plasmashell" window_type="notification"]\r\nfor_window [title="Desktop — Plasma"] kill; floating enable; border none\r\nfor_window [title="Save File — KDialog"] floating disable\r\nfor_window [class="kinfocenter"] floating enable\r\nfor_window [instance="_scratchpad"] floating enable\r\nfor_window [window_type="menu"] floating enable\r\nfor_window [window_type="dialog"] floating enable\r\nfor_window [window_role="Preferences"] floating enable\r\nfor_window [window_role="About"] floating enable\r\nfor_window [window_role="bubble"] floating enable" >> ~/.config/i3/config
-    
 fi
 
 # if EndeavourOS
@@ -88,5 +70,6 @@ then
     nvidia-inst --series 470
 fi
 
-echo ================== et default zsh ==================
-chsh -s /usr/bin/zsh
+echo ================== set default zsh ==================
+#chsh -s /usr/bin/zsh
+source ~/.zshrc
