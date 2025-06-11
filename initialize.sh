@@ -1,5 +1,5 @@
 # Pacman
-yes | sudo pacman -Syu git noto-fonts-cjk fastfetch zsh git neovim kitty gnome-disk-utility cups curl fcitx5 fcitx5-hangul fcitx5-mozc imagemagick bat nnn btop
+yes | sudo pacman -Syu git noto-fonts-cjk fastfetch zsh neovim kitty gnome-disk-utility cups curl fcitx5 fcitx5-hangul fcitx5-mozc imagemagick bat nnn btop
 
 # Yay
 # getnf
