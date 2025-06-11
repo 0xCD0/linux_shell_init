@@ -11,3 +11,12 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sed -i '0,/robbyrussell/s//fox/' ~/.zshrc
 sed -i '0,/plugins=(git)/s//plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 chsh -s /usr/bin/zsh
+
+
+if [ "$DESKTOP_SESSION" = "gnome" ]; then
+    yes | yay -S gnome-browser-connector
+elif [ "$DESKTOP_SESSION" = "kde" ]; then
+    # echo "kde"
+else
+    # echo "etc"
+fi
