@@ -1,5 +1,5 @@
 # Pacman
-yes | sudo pacman -Syu noto-fonts-cjk festfetch zsh git neovim kitty gnome-disk-utility cups curl
+yes | sudo pacman -Syu noto-fonts-cjk festfetch zsh git neovim kitty gnome-disk-utility cups curl fcitx5 fcitx5-hangul fcitx5-mozc
 
 # Yay
 yes | yay -Syu visual-studio-code-bin gedit gnome-disk-utility google-chrome getnf
