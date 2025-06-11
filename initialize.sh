@@ -3,7 +3,7 @@ yes | sudo pacman -Syu git noto-fonts-cjk festfetch zsh git neovim kitty gnome-d
 
 # Yay
 # getnf
-yes | yay -Syu visual-studio-code-bin gedit gnome-disk-utility google-chrome logo-ls
+yes | yay -Syu visual-studio-code-bin gedit gnome-disk-utility google-chrome logo-ls pick
 
 # OhMyZsh
 yes | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
